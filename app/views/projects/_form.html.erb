@@ -1,27 +1,35 @@
-<%= form_with(model: project) do |form| %>
-  <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
-        <% project.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= form_with model: @project do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <br/>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <br/>
+    <%= f.text_field :description %>
+  </div>
+  
+  <h3>Tasks</h3>
+  <div id='tasks'>
+    <%= f.fields_for :tasks do |task| %>
+      <%= render 'task_fields', :f => task %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add task', f, :tasks %>
     </div>
+  </div>
+  <%= f.submit 'Save' %>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class='nested-fields'>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+    <div class="field">
+      <%= f.check_box :done %>
+      <%= f.label :done %>
+    </div>
+    <%= link_to_remove_association "remove task", f %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
