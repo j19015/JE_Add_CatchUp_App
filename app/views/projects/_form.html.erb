@@ -1,0 +1,23 @@
+<%= form_with model: @project do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <br/>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <br/>
+    <%= f.text_field :description %>
+  </div>
+  
+  <h3>Tasks</h3>
+  <div id='tasks'>
+    <%= f.fields_for :tasks do |task| %>
+      <%= render 'task_fields', :f => task %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add task', f, :tasks %>
+    </div>
+  </div>
+  <%= f.submit 'Save' %>
+  <% end %>
