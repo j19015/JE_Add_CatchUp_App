@@ -57,3 +57,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #cocoon
 gem 'cocoon'
+
+# env
+gem 'dotenv-rails'
+
+# Rakuten Api
+gem 'rakuten_web_service'
