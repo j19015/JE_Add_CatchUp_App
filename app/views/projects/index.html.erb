@@ -28,12 +28,19 @@
   <div class="calender">
     <%= month_calendar events: @projects do |date, projects| %>
       <%= date.day %>
-      
-      <% projects.each do |project| %>
-        <div>
-          <%= project.name %>
-          <%= project.description %>
-        </div>
+      <% if projects.count>0 %>
+        <table class="table table-bordered">
+          <tr>
+            <th>プロジェクト名</th>
+            <th>説明文</th>
+          </tr>
+          <% projects.each do |project| %>
+            <tr>
+              <td><%= project.name %></td>
+              <td><%= project.description %></td>
+            </tr>
+          <% end %>
+        </table>
       <% end %>
     <% end %>
   </div>
