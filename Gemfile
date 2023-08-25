@@ -65,4 +65,4 @@ gem 'dotenv-rails'
 gem 'rakuten_web_service'
 
 # simple calender
-gem 'simple calender'
+gem 'simple_calendar'
