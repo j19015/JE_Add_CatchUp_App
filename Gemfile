@@ -63,3 +63,6 @@ gem 'dotenv-rails'
 
 # Rakuten Api
 gem 'rakuten_web_service'
+
+# simple calender
+gem 'simple_calendar'
