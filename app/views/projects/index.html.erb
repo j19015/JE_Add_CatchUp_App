@@ -26,12 +26,13 @@
 
 <div class="container px-10">
   <div class="calender">
-    <%= month_calendar events: @projects do |date, project| %>
+    <%= month_calendar events: @projects do |date, projects| %>
       <%= date.day %>
       
-      <% project.each do |task| %>
+      <% projects.each do |project| %>
         <div>
-          <%= task.name %>
+          <%= project.name %>
+          <%= project.description %>
         </div>
       <% end %>
     <% end %>
