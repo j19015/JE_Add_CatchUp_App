@@ -25,6 +25,20 @@
 </table>
 
 <div class="container px-10">
+  <div class="calender">
+    <%= month_calendar events: @projects do |date, project| %>
+      <%= date.day %>
+      
+      <% project.each do |task| %>
+        <div>
+          <%= task.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container px-10">
   <table class="table-auto">
     <tbody>
       <% @books.each do |book| %>
