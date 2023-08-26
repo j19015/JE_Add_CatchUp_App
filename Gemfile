@@ -66,3 +66,7 @@ gem 'rakuten_web_service'
 
 # simple calender
 gem 'simple_calendar'
+
+# full calender
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
