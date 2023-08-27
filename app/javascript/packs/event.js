@@ -45,3 +45,25 @@ document.addEventListener('turbolinks:load', function() {
     calendar.render();
 
 });
+
+document.addEventListener('turbolinks:load', function() {
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new Calendar(calendarEl, {
+      plugins: [ monthGridPlugin, interactionPlugin, googleCalendarApi ],
+      //~省略~//
+
+      events: '/events.json', // <=これを追加
+      // 書き方のルールとしては['/コントローラー名.json']としてください
+
+  });
+
+  calendar.render();
+
+  //この下からも追加
+  //成功、失敗modalを閉じたときに予定を再更新してくれます
+  //これがないと追加しても自動更新されません
+  $(".error").click(function(){
+      calendar.refetchEvents();
+  });
+});
