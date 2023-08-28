@@ -66,3 +66,6 @@ gem 'rakuten_web_service'
 
 # simple calender
 gem 'simple_calendar'
+
+# ancestry
+gem 'ancestry'
